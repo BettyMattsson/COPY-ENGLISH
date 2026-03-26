@@ -6,6 +6,7 @@
     <title>Anneberg - Hierarchical Weighting Survey</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+        /* Din befintliga CSS här - behåll den oförändrad */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -43,10 +44,10 @@
             border-radius: 8px;
             margin: 20px 0;
         }
-        
+
         .context-box-orange {
-             background-color: #fff3e0;    /* Light orange */
-             border-left: 5px solid #f39c12; /* Orange border */
+             background-color: #fff3e0;
+             border-left: 5px solid #f39c12;
              padding: 20px;
             border-radius: 8px;
             margin: 20px 0;
@@ -122,7 +123,7 @@
         
         .description-box-miljo {
             background-color: #e8f5e9;
-            border-left: 4px solid #27ae60;  /* Green border */
+            border-left: 4px solid #27ae60;
             border-radius: 8px;
             padding: 15px;
             margin: 15px 0;
@@ -130,7 +131,7 @@
 
         .description-box-social {
             background-color: #fff4e6;
-            border-left: 4px solid #e67e22;  /* Orange border */
+            border-left: 4px solid #e67e22;
             border-radius: 8px;
             padding: 15px;
             margin: 15px 0;
@@ -138,7 +139,7 @@
 
         .description-box-ekonomi {
            background-color: #e6f0fa;
-           border-left: 4px solid #3498db;  /* Blue border */
+           border-left: 4px solid #3498db;
            border-radius: 8px;
            padding: 15px;
            margin: 15px 0;
@@ -146,7 +147,7 @@
 
        .description-box-teknik {
           background-color: #f3e8ff;
-          border-left: 4px solid #9b59b6;  /* Purple border */
+          border-left: 4px solid #9b59b6;
           border-radius: 8px;
           padding: 15px;
           margin: 15px 0;
@@ -161,10 +162,12 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             gap: 15px;
+            flex-wrap: wrap;
         }
         
         .criterion-info {
             flex: 2;
+            min-width: 200px;
         }
         
         .criterion-name {
@@ -181,6 +184,7 @@
         
         .slider-container {
             flex: 2;
+            min-width: 150px;
         }
         
         .slider {
@@ -203,6 +207,7 @@
         
         .input-container {
             flex: 0.8;
+            min-width: 80px;
         }
         
         .point-input {
@@ -224,6 +229,12 @@
             background-color: #f0f4ff;
             padding: 8px;
             border-radius: 4px;
+        }
+        
+        .scale-container {
+            width: 100%;
+            margin: 10px 0 5px 0;
+            overflow-x: auto;
         }
         
         .total-section {
@@ -347,287 +358,122 @@
 </head>
 <body>
     <div class="container">
-        <h1>Weighting Survey for Study Area</h1>
+        <h1>Hierarchical Weighting Survey for Anneberg</h1>
         
         <div class="context-box">
             <h3>📋 Background: Anneberg</h3>
             <p>Anneberg is an area in Partille municipality with apartment buildings, Skulltorps primary school, and Anneberg's preschool.</p>
             <p>Anneberg is experiencing major stormwater challenges, and the municipality now faces a decision on the selection of stormwater solutions. 
-                <strong>Stormwater</strong> is rain and meltwater that temporarily runs on urban surfaces such as streets, roofs, and parking lots before reaching the stormwater system or nature.
-                The solutions will be located in public spaces and are evaluated based on several different criteria within four dimensions: Environmental, Social, Economic, and Technical. This 
+            The solutions are evaluated based on several different criteria within four dimensions: Environmental, Social, Economic, and Technical. This 
             enables the evaluation of multifunctionality and sustainability.</p>
+            
+            <p><strong>The following solutions have been selected for evaluation:</strong></p>
+            <ol>
+                <li><strong>Macadam ditch</strong> - stone-filled ditch.</li>
+                <li><strong>Grass-covered macadam ditch</strong> - stone-filled ditch with a layer of grass.</li>
+                <li><strong>Rain garden</strong> - plant bed with, for example, flowers and grass.</li>
+                <li><strong>Macadam ditch + Rain garden</strong> - combined solution.</li>
+                <li><strong>Grass-covered macadam ditch + Rain garden</strong> - combined solution.</li>
+            </ol>
             <p><small><i>The survey is part of a master's thesis at Chalmers University of Technology. The results will be used 
                 to determine which stormwater solutions are most suitable for Anneberg. The survey is anonymous.</i></small></p>
         </div>
-            
         
          <div class="context-box-orange">
-    <h3>📝 Your task</h3>
-    <p>Your task is to distribute 100 points to reflect your personal experiences and opinions. To assist you in the scoring, a table is shown showing how the alternatives perform within each dimension. 
-    The alternatives are scored on a scale from <strong>-10 to +10</strong>, where <strong>0 is the reference alternative "Infiltration trench"</strong>. A positive score means the alternative performs better than the macadam ditch, while 
-    a negative score means it performs worse.</p>
-    
-    <p><strong>The survey has two steps:</strong></p>
-    <ol>
-        <li><strong>Steps 1-4:</strong> Distribute 100 points within each dimension (environmental, social, economic, technical).</li>
-        <li><strong>Step 5:</strong> Distribute 100 points between the dimensions.</li>
-    </ol>
-    
-    <p><i><strong>Example: </strong> You are to assign points to two criteria. You assign 50 points each because you consider both criteria equally important when choosing a stormwater solution. 
-    Later, you are to assign points to two other criteria. This time, you consider one criterion significantly more important and give 
-    it 80 points while the other gets 20 points. You can change the allocated points until you feel the distribution reflects your personal experiences and opinions, though the sum of the points must always be 100 points.</i></p>
-</div>
-
-          
+            <h3>📝 Your task</h3>
+            <p>Your task is to distribute 100 points to reflect your personal experiences and opinions. To assist you in the scoring, a table is shown showing how the alternatives perform within each dimension. 
+            The alternatives are scored on a scale from <strong>-10 to +10</strong>, where <strong>0 is the reference alternative "Macadam ditch"</strong>. A positive score means the alternative performs better than the macadam ditch, while 
+            a negative score means it performs worse.</p>
+            
+            <p><strong>The survey has two steps:</strong></p>
+            <ol>
+                <li><strong>Steps 1-4:</strong> Distribute 100 points within each dimension (environmental, social, economic, technical).</li>
+                <li><strong>Step 5:</strong> Distribute 100 points between the dimensions. Under each dimension, you will see your previous weightings.</li>
+            </ol>
+            
+            <p>More points mean you consider the criterion or dimension to be of great importance for the choice of stormwater solution.
+            You can change the allocated points until you feel the distribution reflects your personal experiences and opinions.</p>
+            
+            <p><i><strong>Example: </strong> You are to assign points to two criteria. You assign 50 points each because you consider both criteria equally important. 
+            Later, you are to assign points to two other criteria. This time, you consider one criterion significantly more important and give 
+            it 80 points while the other gets 20 points. The sum of the points must always be 100 points.</i></p>
+        </div>
+        
+        <div class="step-indicator">
+            <div class="step active" id="step1-indicator">Environment</div>
+            <div class="step" id="step2-indicator">Social</div>
+            <div class="step" id="step3-indicator">Economic</div>
+            <div class="step" id="step4-indicator">Technical</div>
+            <div class="step" id="step5-indicator">Dimensions</div>
+        </div>
+        
         <!-- ENVIRONMENTAL DIMENSION -->
         <div class="dimension-card environmental active" id="dim-environmental">
             <div class="dimension-header">🌿 Environmental Dimension</div>
             <div class="description-box-miljo">
                 <strong>About the environmental dimension:</strong> This dimension concerns the impact of the measures on the natural environment. It includes both cleaning stormwater from existing pollutants and promoting biodiversity.
             </div>
-            
-        <!-- TABLE -->
-    <div style="background-color: #e8f5e9; padding: 15px; border-radius: 8px; margin: 15px 0;">
-        <p style="font-weight: bold; margin-bottom: 10px;">📊 Performance of alternatives within the environmental dimension (compared to the reference alternative Infiltration trench):</p>
-        <table style="width:100%; border-collapse: collapse; font-size: 0.9rem;">
-            <thead>
-                <tr style="background-color: #27ae60; color: white;">
-                    <th style="padding: 8px; text-align: left;">Criterion</th>
-                    <th style="padding: 8px; text-align: center;">Alt. 0<i>(reference)</i></th>
-                    <th style="padding: 8px; text-align: center;">Alt. 1 </th>
-                    <th style="padding: 8px; text-align: center;">Alt. 2</th>
-                    <th style="padding: 8px; text-align: center;">Alt. 3</th>
-                    <th style="padding: 8px; text-align: center;">Alt. 4</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr style="border-bottom: 1px solid #ddd;">
-                    <td style="padding: 8px; font-weight: 500;"> Remediation of nutrients</td>
-                    <td style="padding: 8px; text-align: center;">0</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">0</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">-1</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">0</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">0</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #ddd;">
-                    <td style="padding: 8px; font-weight: 500;"> Remediation of PAH:s</td>
-                    <td style="padding: 8px; text-align: center;">0</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">0</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">+6</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">+3</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">+3</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #ddd;">
-                    <td style="padding: 8px; font-weight: 500;"> Heavy metal removal</td>
-                    <td style="padding: 8px; text-align: center;">0</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">0</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">0</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">0</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">0</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #ddd;">
-                    <td style="padding: 8px; font-weight: 500;"> Remediation of suspended solids</td>
-                    <td style="padding: 8px; text-align: center;">0</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">0</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">0</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">0</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">0</td>
-                </tr>
-                <tr>
-                    <td style="padding: 8px; font-weight: 500;"> Biodiversity</td>
-                    <td style="padding: 8px; text-align: center;">0</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">0</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">+2</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">+2</td>
-                    <td style="padding: 8px; text-align: center; color: #27ae60;">+3</td>
-                </tr>
-            </tbody>
-        </table>
-        <p style="font-size: 0.8rem; margin-top: 8px; color: #666;">Positive scores = better remediation/effect than Alt. 0, negative = worse than Alt. 0</p>
-    </div>
-    
-   <div class="instruction">⚖️ Distribute 100 points among the environmental criteria:</div>
-    <div id="env-sliders"></div>
-    
-    <div class="total-section">
-        <div class="total-display" id="envTotal">0</div>
-        <div class="points-remaining" id="envRemaining"></div>
-    </div>
-    
-    <div class="chart-container">
-        <canvas id="envChart"></canvas>
-    </div>
-</div>
+            <div class="instruction">⚖️ Distribute 100 points among the environmental criteria:</div>
+            <div id="env-sliders"></div>
+            <div class="total-section">
+                <div class="total-display" id="envTotal">0</div>
+                <div class="points-remaining" id="envRemaining"></div>
+            </div>
+            <div class="chart-container">
+                <canvas id="envChart"></canvas>
+            </div>
+        </div>
         
         <!-- SOCIAL DIMENSION -->
-<div class="dimension-card social" id="dim-social">
-    <div class="dimension-header">👥 Social Dimension</div>
-    
-    <div class="description-box-social">
-        <strong>About the social dimension:</strong> Concerns how the measures affect people's quality of life, recreation, and educational values.
-    </div>
-    
-    <!-- TABLE FOR SOCIAL DIMENSION -->
-<div style="background-color: #fff4e6; padding: 15px; border-radius: 8px; margin: 15px 0;">
-    <p style="font-weight: bold; margin-bottom: 10px;">📊 Performance of alternatives within the social dimension (compared to the reference alternative Infiltration trench):</p>
-    <table style="width:100%; border-collapse: collapse; font-size: 0.9rem;">
-        <thead>
-            <tr style="background-color: #e67e22; color: white;">
-                <th style="padding: 8px; text-align: left;">Criterion</th>
-                <th style="padding: 8px; text-align: center;">Infiltration trench <i>(reference)</i></th>
-                <th style="padding: 8px; text-align: center;">Grass-covered iniltration trench</th>
-                <th style="padding: 8px; text-align: center;">Rain garden</th>
-                <th style="padding: 8px; text-align: center;">Infiltration trench + Rain garden</th>
-                <th style="padding: 8px; text-align: center;">Grass-covered infiltration trench + Rain garden</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr style="border-bottom: 1px solid #ddd;">
-                <td style="padding: 8px; font-weight: 500;"> Recreation and attractiveness</td>
-                <td style="padding: 8px; text-align: center;">0</td>
-                <td style="padding: 8px; text-align: center; color: #e67e22;">?</td>
-                <td style="padding: 8px; text-align: center; color: #e67e22;">?</td>
-                <td style="padding: 8px; text-align: center; color: #e67e22;">?</td>
-                <td style="padding: 8px; text-align: center; color: #e67e22;">?</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px; font-weight: 500;"> Education</td>
-                <td style="padding: 8px; text-align: center;">0</td>
-                <td style="padding: 8px; text-align: center; color: #e67e22;">?</td>
-                <td style="padding: 8px; text-align: center; color: #e67e22;">?</td>
-                <td style="padding: 8px; text-align: center; color: #e67e22;">?</td>
-                <td style="padding: 8px; text-align: center; color: #e67e22;">?</td>
-            </tr>
-        </tbody>
-    </table>
-    <p style="font-size: 0.8rem; margin-top: 8px; color: #666;">Positive scores = better than infiltration trench, negative = worse than infiltration trench</p>
-</div>
-    
-    <div class="instruction">⚖️ Distribute 100 points among the social criteria:</div>
-    <div id="social-sliders"></div>
-    
-    <div class="total-section">
-        <div class="total-display" id="socialTotal">0</div>
-        <div class="points-remaining" id="socialRemaining"></div>
-    </div>
-    
-    <div class="chart-container">
-        <canvas id="socialChart"></canvas>
-    </div>
-</div>
-        <!-- ECONOMIC DIMENSION -->
-<div class="dimension-card economic" id="dim-economic">
-    <div class="dimension-header">💰 Economic Dimension</div>
-    
-    <div class="description-box-ekonomi">
-        <strong>About the economic dimension:</strong> Concerns construction costs and ongoing maintenance costs.
-    </div>
-    
-    <!-- TABLE FOR ECONOMIC DIMENSION -->
-<div style="background-color: #e6f0fa; padding: 15px; border-radius: 8px; margin: 15px 0;">
-    <p style="font-weight: bold; margin-bottom: 10px;">📊 Performance of alternatives within the economic dimension (compared to the reference alternative Infiltration trench):</p>
-    <table style="width:100%; border-collapse: collapse; font-size: 0.9rem;">
-        <thead>
-            <tr style="background-color: #3498db; color: white;">
-                <th style="padding: 8px; text-align: left;">Criterion</th>
-                <th style="padding: 8px; text-align: center;">Infiltration trench <i>(reference)</i></th>
-                <th style="padding: 8px; text-align: center;">Grass-covered infiltration trench</th>
-                <th style="padding: 8px; text-align: center;">Rain garden</th>
-                <th style="padding: 8px; text-align: center;">Infiltration trench + Rain garden</th>
-                <th style="padding: 8px; text-align: center;">Grass-covered ifiltration trench + Rain garden</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr style="border-bottom: 1px solid #ddd;">
-                <td style="padding: 8px; font-weight: 500;"> Construction cost</td>
-                <td style="padding: 8px; text-align: center;">0</td>
-                <td style="padding: 8px; text-align: center; color: #3498db;">?</td>
-                <td style="padding: 8px; text-align: center; color: #3498db;">?</td>
-                <td style="padding: 8px; text-align: center; color: #3498db;">?</td>
-                <td style="padding: 8px; text-align: center; color: #3498db;">?</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px; font-weight: 500;"> Maintenance cost</td>
-                <td style="padding: 8px; text-align: center;">0</td>
-                <td style="padding: 8px; text-align: center; color: #3498db;">?</td>
-                <td style="padding: 8px; text-align: center; color: #3498db;">?</td>
-                <td style="padding: 8px; text-align: center; color: #3498db;">?</td>
-                <td style="padding: 8px; text-align: center; color: #3498db;">?</td>
-            </tr>
-        </tbody>
-    </table>
-    <p style="font-size: 0.8rem; margin-top: 8px; color: #666;">Positive = lower cost than infiltration trench, negative scores = higher cost than infiltration trench</p>
-</div>
-    
-    <div class="instruction">⚖️ Distribute 100 points among the economic criteria:</div>
-    <div id="economic-sliders"></div>
-    
-    <div class="total-section">
-        <div class="total-display" id="economicTotal">0</div>
-        <div class="points-remaining" id="economicRemaining"></div>
-    </div>
-    
-    <div class="chart-container">
-        <canvas id="economicChart"></canvas>
-    </div>
-</div>
+        <div class="dimension-card social" id="dim-social">
+            <div class="dimension-header">👥 Social Dimension</div>
+            <div class="description-box-social">
+                <strong>About the social dimension:</strong> Concerns how the measures affect people's quality of life, recreation, and educational values.
+            </div>
+            <div class="instruction">⚖️ Distribute 100 points among the social criteria:</div>
+            <div id="social-sliders"></div>
+            <div class="total-section">
+                <div class="total-display" id="socialTotal">0</div>
+                <div class="points-remaining" id="socialRemaining"></div>
+            </div>
+            <div class="chart-container">
+                <canvas id="socialChart"></canvas>
+            </div>
+        </div>
         
-       <!-- TECHNICAL DIMENSION -->
-<div class="dimension-card technical" id="dim-technical">
-    <div class="dimension-header">⚙️ Technical Dimension</div>
-    
-    <div class="description-box-teknik">
-        <strong>About the technical dimension:</strong> Concerns maintenance frequency and complexity.
-    </div>
-    
-    <!-- TABLE FOR TECHNICAL DIMENSION -->
-<div style="background-color: #f3e8ff; padding: 15px; border-radius: 8px; margin: 15px 0;">
-    <p style="font-weight: bold; margin-bottom: 10px;">📊 Performance of alternatives within the technical dimension (compared to the reference alternative Infiltration trench):</p>
-    <table style="width:100%; border-collapse: collapse; font-size: 0.9rem;">
-        <thead>
-            <tr style="background-color: #9b59b6; color: white;">
-                <th style="padding: 8px; text-align: left;">Criterion</th>
-                <th style="padding: 8px; text-align: center;">Infiltration trench <i>(reference)</i></th>
-                <th style="padding: 8px; text-align: center;">Grass-covered infiltration trench</th>
-                <th style="padding: 8px; text-align: center;">Rain garden</th>
-                <th style="padding: 8px; text-align: center;">Infiltration trench + Rain garden</th>
-                <th style="padding: 8px; text-align: center;">Grass-covered infiltration trench + Rain garden</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr style="border-bottom: 1px solid #ddd;">
-                <td style="padding: 8px; font-weight: 500;"> Maintenance frequency</td>
-                <td style="padding: 8px; text-align: center;">0</td>
-                <td style="padding: 8px; text-align: center; color: #9b59b6;">-1</td>
-                <td style="padding: 8px; text-align: center; color: #9b59b6;">-6</td>
-                <td style="padding: 8px; text-align: center; color: #9b59b6;">-3</td>
-                <td style="padding: 8px; text-align: center; color: #9b59b6;">-3</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px; font-weight: 500;"> Maintenance complexity</td>
-                <td style="padding: 8px; text-align: center;">0</td>
-                <td style="padding: 8px; text-align: center; color: #9b59b6;">+1</td>
-                <td style="padding: 8px; text-align: center; color: #9b59b6;">-2</td>
-                <td style="padding: 8px; text-align: center; color: #9b59b6;">-3</td>
-                <td style="padding: 8px; text-align: center; color: #9b59b6;">-3</td>
-            </tr>
-        </tbody>
-    </table>
-    <p style="font-size: 0.8rem; margin-top: 8px; color: #666;">Positive = less frequent/complex maintenance than infiltration trench, negative scores = more frequent/complex maintenance than infiltration trench</p>
-</div>
-    
-    <div class="instruction">⚖️ Distribute 100 points among the technical criteria:</div>
-    <div id="technical-sliders"></div>
-    
-    <div class="total-section">
-        <div class="total-display" id="technicalTotal">0</div>
-        <div class="points-remaining" id="technicalRemaining"></div>
-    </div>
-    
-    <div class="chart-container">
-        <canvas id="technicalChart"></canvas>
-    </div>
-</div>
+        <!-- ECONOMIC DIMENSION -->
+        <div class="dimension-card economic" id="dim-economic">
+            <div class="dimension-header">💰 Economic Dimension</div>
+            <div class="description-box-ekonomi">
+                <strong>About the economic dimension:</strong> Concerns construction costs and ongoing maintenance costs.
+            </div>
+            <div class="instruction">⚖️ Distribute 100 points among the economic criteria:</div>
+            <div id="economic-sliders"></div>
+            <div class="total-section">
+                <div class="total-display" id="economicTotal">0</div>
+                <div class="points-remaining" id="economicRemaining"></div>
+            </div>
+            <div class="chart-container">
+                <canvas id="economicChart"></canvas>
+            </div>
+        </div>
+        
+        <!-- TECHNICAL DIMENSION -->
+        <div class="dimension-card technical" id="dim-technical">
+            <div class="dimension-header">⚙️ Technical Dimension</div>
+            <div class="description-box-teknik">
+                <strong>About the technical dimension:</strong> Concerns maintenance frequency and complexity.
+            </div>
+            <div class="instruction">⚖️ Distribute 100 points among the technical criteria:</div>
+            <div id="technical-sliders"></div>
+            <div class="total-section">
+                <div class="total-display" id="technicalTotal">0</div>
+                <div class="points-remaining" id="technicalRemaining"></div>
+            </div>
+            <div class="chart-container">
+                <canvas id="technicalChart"></canvas>
+            </div>
+        </div>
         
         <!-- DIMENSION WEIGHTING WITH CRITERIA LIST -->
         <div class="dimension-card dimensions-weighting" id="dim-dimensions">
@@ -635,22 +481,14 @@
             
             <div class="description-box">
                 <strong>📋 Your weightings within each dimension:</strong>
-                <p style="margin-top: 10px;">Now distribute <strong>100 points between the dimensions</strong> below. Under each dimension, you will see which criteria are included (from your previous weightings). 
-</p>
-
-<p>
-    The pie chart shows the <strong>final weighting</strong> of all criteria – a larger share means the criterion has greater importance for the final assessment. 
-    This is automatically calculated based on:
-</p>
-
-<ul style="margin-left: 20px; margin-bottom: 15px;">
-    <li>✔️ Your point distribution <em>within</em> each dimension (steps 1-4)</li>
-    <li>✔️ Your point distribution <em>between</em> the dimensions (this step)</li>
-</ul>
-
-<p>
-    You can <strong>go back</strong> to previous steps at any time and adjust your points – the chart updates automatically. Continue adjusting until you are satisfied with the final distribution.
-</p>
+                <p style="margin-top: 10px;">Now distribute <strong>100 points between the dimensions</strong> below. Under each dimension, you will see which criteria are included (from your previous weightings).</p>
+                <p>The pie chart shows the <strong>final weighting</strong> of all criteria – a larger share means the criterion has greater importance for the final assessment. 
+                This is automatically calculated based on:</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>✔️ Your point distribution <em>within</em> each dimension (steps 1-4)</li>
+                    <li>✔️ Your point distribution <em>between</em> the dimensions (this step)</li>
+                </ul>
+                <p>You can <strong>go back</strong> to previous steps at any time and adjust your points – the chart updates automatically. Continue adjusting until you are satisfied with the final distribution.</p>
             </div>
             
             <div id="dimensions-with-criteria"></div>
@@ -695,13 +533,15 @@
     </div>
 
     <script>
-        // ALL CRITERIA WITH DESCRIPTIONS
+        // ============================================
+        // 1. CRITERIA DEFINITIONS
+        // ============================================
         const criteria = {
             environmental: [
-                { id: "nutrients", name: "Remediation of nutrient", desc: "Remediate stormwater from nitrogen and phosphorus. Can cause eutrophication." },
-                { id: "pahs", name: "Remediation of PAH:s", desc: "Remediate stormwater from polycyclic aromatic hydrocarbons. Can cause cancer." },
-                { id: "heavymetals", name: "Remediation of heavy metal", desc: "Remediate stormwater from heavy metals." },
-                { id: "particles", name: "Remediation of suspended solids", desc: "Remediate stormwater from suspended particles. Can cause turbidity and sediment." },
+                { id: "nutrients", name: "Nutrient removal", desc: "Clean stormwater from nitrogen and phosphorus. Can cause eutrophication." },
+                { id: "pahs", name: "PAH removal", desc: "Clean stormwater from polycyclic aromatic hydrocarbons. Can cause cancer." },
+                { id: "heavymetals", name: "Heavy metal removal", desc: "Clean stormwater from heavy metals." },
+                { id: "particles", name: "Suspended solids removal", desc: "Clean stormwater from suspended particles. Can cause turbidity and sediment." },
                 { id: "biodiversity", name: "Biodiversity", desc: "Contributes to the variety of plants and animals." }
             ],
             social: [
@@ -709,16 +549,42 @@
                 { id: "education", name: "Education", desc: "Pedagogical values." }
             ],
             economic: [
-                { id: "installcost", name: "Construction cost", desc: "Initial cost of the facility." },
-                { id: "maintenancecost", name: "Maintenance cost", desc: "Ongoing costs during the facility's lifecycle." }
+                { id: "installcost", name: "Construction cost", desc: "Initial cost of the measure." },
+                { id: "maintenancecost", name: "Maintenance cost", desc: "Ongoing costs during the measure's lifecycle." }
             ],
             technical: [
-                { id: "frequency", name: "Maintenance frequency", desc: "How often maintenance is needed. Includes mowing, irrigation, etc." },
+                { id: "frequency", name: "Maintenance frequency", desc: "How often maintenance is needed. Includes grass cutting, irrigation, etc." },
                 { id: "complexity", name: "Maintenance complexity", desc: "How complicated the maintenance is (type of equipment and knowledge required)." }
             ]
         };
         
-        // STATE FOR ALL VALUES
+        // ============================================
+        // 2. SCORES FOR EACH CRITERION (for the scale)
+        // ============================================
+        const criteriaScores = {
+            // Environmental
+            nutrients: { 'Alt. 1': 0, 'Alt. 2': -1, 'Alt. 3': 0, 'Alt. 4': 0 },
+            pahs: { 'Alt. 1': 0, 'Alt. 2': 6, 'Alt. 3': 3, 'Alt. 4': 3 },
+            heavymetals: { 'Alt. 1': 0, 'Alt. 2': 0, 'Alt. 3': 0, 'Alt. 4': 0 },
+            particles: { 'Alt. 1': 0, 'Alt. 2': 0, 'Alt. 3': 0, 'Alt. 4': 0 },
+            biodiversity: { 'Alt. 1': 0, 'Alt. 2': 2, 'Alt. 3': 2, 'Alt. 4': 3 },
+            
+            // Social
+            recreation: { 'Alt. 1': 1, 'Alt. 2': 6, 'Alt. 3': 4, 'Alt. 4': 3 },
+            education: { 'Alt. 1': 2, 'Alt. 2': 8, 'Alt. 3': 5, 'Alt. 4': 7 },
+            
+            // Economic
+            installcost: { 'Alt. 1': -2, 'Alt. 2': -5, 'Alt. 3': -4, 'Alt. 4': -6 },
+            maintenancecost: { 'Alt. 1': -1, 'Alt. 2': -4, 'Alt. 3': -3, 'Alt. 4': -5 },
+            
+            // Technical
+            frequency: { 'Alt. 1': -1, 'Alt. 2': -6, 'Alt. 3': -3, 'Alt. 4': -3 },
+            complexity: { 'Alt. 1': 1, 'Alt. 2': -2, 'Alt. 3': -3, 'Alt. 4': -3 }
+        };
+        
+        // ============================================
+        // 3. STATE FOR ALL VALUES
+        // ============================================
         let values = {
             environmental: [0, 0, 0, 0, 0],
             social: [0, 0],
@@ -738,72 +604,195 @@
         let currentStep = 0;
         const steps = ['environmental', 'social', 'economic', 'technical', 'dimensions'];
         
-        // GENERATE SLIDERS
-        function generateSliders(dimension, containerId, valuesArray, criteriaArray) {
+        // ============================================
+        // 4. SCALE GENERATOR FUNCTION (reusable)
+        // ============================================
+        function getColorForScore(score) {
+            const t = (score + 10) / 20;
+            const colors = [
+                { r: 231, g: 76, b: 60 },  // -10: #e74c3c
+                { r: 243, g: 156, b: 18 }, // -5: #f39c12
+                { r: 241, g: 196, b: 15 }, // 0: #f1c40f
+                { r: 46, g: 204, b: 113 }, // +5: #2ecc71
+                { r: 39, g: 174, b: 96 }   // +10: #27ae60
+            ];
+            
+            let segment = t * 4;
+            let idx = Math.min(Math.floor(segment), 3);
+            let blend = segment - idx;
+            
+            const c1 = colors[idx];
+            const c2 = colors[idx + 1];
+            
+            const r = Math.round(c1.r + (c2.r - c1.r) * blend);
+            const g = Math.round(c1.g + (c2.g - c1.g) * blend);
+            const b = Math.round(c1.b + (c2.b - c1.b) * blend);
+            
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+        
+        function createScale(containerId, alternatives, showLegend = true) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            container.innerHTML = '';
+            
+            const circlesRow = document.createElement('div');
+            circlesRow.style.display = 'flex';
+            circlesRow.style.justifyContent = 'space-between';
+            circlesRow.style.alignItems = 'flex-end';
+            circlesRow.style.minWidth = '700px';
+            
+            for (let i = -10; i <= 10; i++) {
+                const color = getColorForScore(i);
+                
+                let altName = null;
+                for (const [name, score] of Object.entries(alternatives)) {
+                    if (score === i) {
+                        altName = name;
+                        break;
+                    }
+                }
+                
+                const circleDiv = document.createElement('div');
+                circleDiv.style.textAlign = 'center';
+                circleDiv.style.width = '32px';
+                
+                if (altName) {
+                    circleDiv.innerHTML = `
+                        <div style="margin-bottom: 6px;">
+                            <span style="font-size: 0.7rem; font-weight: bold; background: ${color}20; padding: 2px 8px; border-radius: 12px; color: ${color};">${altName}</span>
+                        </div>
+                        <div style="width: 32px; height: 32px; border-radius: 50%; background: ${color}; border: 2px solid ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: white; margin: 0 auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            ${i}
+                        </div>
+                    `;
+                } else if (i === 0) {
+                    circleDiv.innerHTML = `
+                        <div style="margin-bottom: 6px;">
+                            <span style="visibility: hidden;"> </span>
+                        </div>
+                        <div style="width: 32px; height: 32px; border-radius: 50%; background: ${color}; border: 2px solid ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: white; margin: 0 auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            ${i}
+                        </div>
+                    `;
+                } else {
+                    circleDiv.innerHTML = `
+                        <div style="margin-bottom: 6px;">
+                            <span style="visibility: hidden;"> </span>
+                        </div>
+                        <div style="width: 32px; height: 32px; border-radius: 50%; background: white; border: 2px solid ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: ${color}; margin: 0 auto;">
+                            ${i}
+                        </div>
+                    `;
+                }
+                circlesRow.appendChild(circleDiv);
+            }
+            
+            container.appendChild(circlesRow);
+            
+            if (showLegend) {
+                const legendDiv = document.createElement('div');
+                legendDiv.style.display = 'flex';
+                legendDiv.style.justifyContent = 'space-between';
+                legendDiv.style.marginTop = '10px';
+                legendDiv.style.padding = '0 5px';
+                legendDiv.innerHTML = `
+                    <span style="font-size: 0.65rem; color: #e74c3c;">← Worse</span>
+                    <span style="font-size: 0.65rem; color: #666;">0 (reference)</span>
+                    <span style="font-size: 0.65rem; color: #27ae60;">Better →</span>
+                `;
+                container.appendChild(legendDiv);
+            }
+        }
+        
+        // ============================================
+        // 5. SLIDER GENERATION WITH SCALES
+        // ============================================
+        function generateSlidersWithScales(dimension, containerId, valuesArray, criteriaArray, scoreKeyMap) {
             const container = document.getElementById(containerId);
             if (!container) return;
             
             container.innerHTML = '';
             
             criteriaArray.forEach((criterion, index) => {
+                const scoreKey = criterion.id;
+                const scores = criteriaScores[scoreKey] || {};
+                
                 const row = document.createElement('div');
                 row.className = 'criterion-row';
+                row.style.flexDirection = 'column';
+                row.style.alignItems = 'stretch';
                 
-                row.innerHTML = `
-                    <div class="criterion-info">
+                // Main row with info and slider
+                const mainRow = document.createElement('div');
+                mainRow.style.display = 'flex';
+                mainRow.style.alignItems = 'center';
+                mainRow.style.gap = '15px';
+                mainRow.style.width = '100%';
+                mainRow.style.flexWrap = 'wrap';
+                
+                mainRow.innerHTML = `
+                    <div class="criterion-info" style="flex: 2; min-width: 200px;">
                         <div class="criterion-name">${criterion.name}</div>
                         <div class="criterion-desc">${criterion.desc}</div>
                     </div>
-                    <div class="slider-container">
+                    <div class="slider-container" style="flex: 2; min-width: 150px;">
                         <input type="range" class="slider" id="${dimension}-slider-${index}" min="0" max="100" value="${valuesArray[index]}">
                     </div>
-                    <div class="input-container">
+                    <div class="input-container" style="flex: 0.8; min-width: 80px;">
                         <input type="number" class="point-input" id="${dimension}-input-${index}" min="0" max="100" value="${valuesArray[index]}">
                     </div>
-                    <div class="value-box" id="${dimension}-value-${index}">${valuesArray[index]}</div>
+                    <div class="value-box" style="flex: 0.5; min-width: 60px;" id="${dimension}-value-${index}">${valuesArray[index]}</div>
                 `;
+                
+                row.appendChild(mainRow);
+                
+                // Scale container (for the performance visualization)
+                const scaleContainer = document.createElement('div');
+                scaleContainer.className = 'scale-container';
+                const scaleId = `${dimension}-scale-${index}`;
+                scaleContainer.id = scaleId;
+                row.appendChild(scaleContainer);
                 
                 container.appendChild(row);
                 
+                // Create the scale
+                if (Object.keys(scores).length > 0) {
+                    createScale(scaleId, scores, true);
+                }
+                
+                // Add event listeners
                 const slider = document.getElementById(`${dimension}-slider-${index}`);
                 const input = document.getElementById(`${dimension}-input-${index}`);
+                const valueDiv = document.getElementById(`${dimension}-value-${index}`);
                 
-                slider.addEventListener('input', function(e) {
-                    const val = parseInt(e.target.value) || 0;
-                    updateValue(dimension, index, val);
-                });
+                const updateValue = (val) => {
+                    values[dimension][index] = val;
+                    if (slider) slider.value = val;
+                    if (input) input.value = val;
+                    if (valueDiv) valueDiv.textContent = val;
+                    updateDimensionTotal(dimension);
+                    updateDimensionChart(dimension);
+                    
+                    if (currentStep === 4) {
+                        createDimensionSliders();
+                    }
+                };
                 
-                input.addEventListener('input', function(e) {
+                slider.addEventListener('input', (e) => updateValue(parseInt(e.target.value) || 0));
+                input.addEventListener('input', (e) => {
                     let val = parseInt(e.target.value);
                     if (isNaN(val)) val = 0;
                     if (val < 0) val = 0;
                     if (val > 100) val = 100;
-                    updateValue(dimension, index, val);
+                    updateValue(val);
                 });
             });
         }
         
-        // UPDATE VALUE
-        function updateValue(dimension, index, val) {
-            values[dimension][index] = val;
-            
-            const slider = document.getElementById(`${dimension}-slider-${index}`);
-            const input = document.getElementById(`${dimension}-input-${index}`);
-            const valueDiv = document.getElementById(`${dimension}-value-${index}`);
-            
-            if (slider) slider.value = val;
-            if (input) input.value = val;
-            if (valueDiv) valueDiv.textContent = val;
-            
-            updateDimensionTotal(dimension);
-            updateDimensionChart(dimension);
-            
-            if (currentStep === 4) {
-                createDimensionSliders();
-            }
-        }
-        
-        // UPDATE TOTAL
+        // ============================================
+        // 6. EXISTING FUNCTIONS (keep as they are)
+        // ============================================
         function updateDimensionTotal(dimension) {
             const sum = values[dimension].reduce((a, b) => a + b, 0);
             
@@ -868,104 +857,91 @@
             checkIfSubmitReady();
         }
         
-        // UPDATE CHART (for individual dimensions)
-function updateDimensionChart(dimension) {
-    const chartMap = {
-        environmental: 'envChart',
-        social: 'socialChart',
-        economic: 'economicChart',
-        technical: 'technicalChart'
-    };
-    
-    const canvas = document.getElementById(chartMap[dimension]);
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    const valuesArray = values[dimension];
-    
-    let labels;
-    let baseColor;
-    let colorShades = [];
-    
-    // Define base colors and create gradients
-    if (dimension === 'environmental') {
-        labels = criteria.environmental.map(c => c.name);
-        baseColor = '#27ae60'; // Green
-        // Create 5 shades from light to dark
-        colorShades = ['#e6ffe6', '#ccffcc', '#99ff99', '#4CAF50','#2E7D32'];
-    } else if (dimension === 'social') {
-        labels = criteria.social.map(c => c.name);
-        baseColor = '#e67e22'; // Orange
-        colorShades = ['#f7c59f', '#ffb74d', '#ef8f3f', '#e67e22', '#b85e0f'];
-    } else if (dimension === 'economic') {
-        labels = criteria.economic.map(c => c.name);
-        baseColor = '#3498db'; // Blue
-        colorShades = ['#a6d0f0', '#64b5f6', '#4ea0dc', '#3498db', '#1f618d'];
-    } else if (dimension === 'technical') {
-        labels = criteria.technical.map(c => c.name);
-        baseColor = '#9b59b6'; // Purple
-        colorShades = ['#d2b0e0', '#ba68c8', '#aa6eb6', '#9b59b6', '#6c3483'];
-    }
-    
-    // Filter out zero values
-    const nonZeroIndices = [];
-    const nonZeroValues = [];
-    const nonZeroLabels = [];
-    const nonZeroColors = [];
-    
-    valuesArray.forEach((val, idx) => {
-        if (val > 0) {
-            nonZeroIndices.push(idx);
-            nonZeroValues.push(val);
-            nonZeroLabels.push(labels[idx]);
-            // Use gradient color based on index (to get the same order each time)
-            nonZeroColors.push(colorShades[idx % colorShades.length]);
-        }
-    });
-    
-    if (nonZeroValues.length === 0) {
-        if (charts[dimension]) charts[dimension].destroy();
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.font = '14px Arial';
-        ctx.fillStyle = '#999';
-        ctx.fillText('Distribute points to see chart', 50, 150);
-        return;
-    }
-    
-    if (charts[dimension]) charts[dimension].destroy();
-    
-    charts[dimension] = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: nonZeroLabels,
-            datasets: [{
-                data: nonZeroValues,
-                backgroundColor: nonZeroColors,
-                borderWidth: 1,
-                borderColor: '#fff'
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: { position: 'bottom' },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            const label = context.label || '';
-                            const value = context.raw || 0;
-                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                            const percent = ((value / total) * 100).toFixed(1);
-                            return `${label}: ${value} points (${percent}%)`;
+        function updateDimensionChart(dimension) {
+            const chartMap = {
+                environmental: 'envChart',
+                social: 'socialChart',
+                economic: 'economicChart',
+                technical: 'technicalChart'
+            };
+            
+            const canvas = document.getElementById(chartMap[dimension]);
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            const valuesArray = values[dimension];
+            
+            let labels, colors;
+            
+            if (dimension === 'environmental') {
+                labels = criteria.environmental.map(c => c.name);
+                colors = ['#e6ffe6', '#ccffcc', '#99ff99', '#4CAF50','#2E7D32'];
+            } else if (dimension === 'social') {
+                labels = criteria.social.map(c => c.name);
+                colors = ['#f7c59f', '#ffb74d', '#ef8f3f', '#e67e22', '#b85e0f'];
+            } else if (dimension === 'economic') {
+                labels = criteria.economic.map(c => c.name);
+                colors = ['#a6d0f0', '#64b5f6', '#4ea0dc', '#3498db', '#1f618d'];
+            } else if (dimension === 'technical') {
+                labels = criteria.technical.map(c => c.name);
+                colors = ['#d2b0e0', '#ba68c8', '#aa6eb6', '#9b59b6', '#6c3483'];
+            }
+            
+            const nonZeroValues = [];
+            const nonZeroLabels = [];
+            const nonZeroColors = [];
+            
+            valuesArray.forEach((val, idx) => {
+                if (val > 0) {
+                    nonZeroValues.push(val);
+                    nonZeroLabels.push(labels[idx]);
+                    nonZeroColors.push(colors[idx % colors.length]);
+                }
+            });
+            
+            if (nonZeroValues.length === 0) {
+                if (charts[dimension]) charts[dimension].destroy();
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.font = '14px Arial';
+                ctx.fillStyle = '#999';
+                ctx.fillText('Distribute points to see chart', 50, 150);
+                return;
+            }
+            
+            if (charts[dimension]) charts[dimension].destroy();
+            
+            charts[dimension] = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: nonZeroLabels,
+                    datasets: [{
+                        data: nonZeroValues,
+                        backgroundColor: nonZeroColors,
+                        borderWidth: 1,
+                        borderColor: '#fff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percent = ((value / total) * 100).toFixed(1);
+                                    return `${label}: ${value} points (${percent}%)`;
+                                }
+                            }
                         }
                     }
                 }
-            }
+            });
         }
-    });
-}
         
-        // DIMENSION SLIDERS
+        // DIMENSION SLIDERS (keep as is)
         function createDimensionSliders() {
             const container = document.getElementById('dimensions-with-criteria');
             if (!container) return;
@@ -1058,106 +1034,106 @@ function updateDimensionChart(dimension) {
             });
         }
         
-// CALCULATE FINAL WEIGHTS WITH COLOR CODING
-function calculateFinalWeights() {
-    const finalWeights = [];
-    const finalLabels = [];
-    const finalColors = [];
-    
-    // Define color palettes for each dimension (same as above)
-    const colorPalettes = {
-        environmental: ['#e6ffe6', '#ccffcc', '#99ff99', '#4CAF50','#2E7D32'],
-        social: ['#f7c59f', '#ffb74d', '#ef8f3f', '#e67e22', '#b85e0f'],
-        economic: ['#a6d0f0', '#64b5f6', '#4ea0dc', '#3498db', '#1f618d'],
-        technical: ['#d2b0e0', '#ba68c8', '#aa6eb6', '#9b59b6', '#6c3483']
-    };
-    
-    // List of criteria in the same order they are displayed
-    const dims = [
-        { key: 'environmental', criteria: criteria.environmental, palette: colorPalettes.environmental },
-        { key: 'social', criteria: criteria.social, palette: colorPalettes.social },
-        { key: 'economic', criteria: criteria.economic, palette: colorPalettes.economic },
-        { key: 'technical', criteria: criteria.technical, palette: colorPalettes.technical }
-    ];
-    
-    dims.forEach((dim, dimIdx) => {
-        const dimWeight = values.dimensions[dimIdx];
-        dim.criteria.forEach((criterion, critIdx) => {
-            const critWeight = values[dim.key][critIdx];
-            if (critWeight > 0 && dimWeight > 0) {
-                finalWeights.push((critWeight * dimWeight) / 100);
-                finalLabels.push(criterion.name);
-                // Use the same color as in the dimension chart
-                finalColors.push(dim.palette[critIdx % dim.palette.length]);
+        // FINAL CHART
+        function calculateFinalWeights() {
+            const finalWeights = [];
+            const finalLabels = [];
+            const finalColors = [];
+            
+            const colorPalettes = {
+                environmental: ['#e6ffe6', '#ccffcc', '#99ff99', '#4CAF50','#2E7D32'],
+                social: ['#f7c59f', '#ffb74d', '#ef8f3f', '#e67e22', '#b85e0f'],
+                economic: ['#a6d0f0', '#64b5f6', '#4ea0dc', '#3498db', '#1f618d'],
+                technical: ['#d2b0e0', '#ba68c8', '#aa6eb6', '#9b59b6', '#6c3483']
+            };
+            
+            const dims = [
+                { key: 'environmental', criteria: criteria.environmental, palette: colorPalettes.environmental },
+                { key: 'social', criteria: criteria.social, palette: colorPalettes.social },
+                { key: 'economic', criteria: criteria.economic, palette: colorPalettes.economic },
+                { key: 'technical', criteria: criteria.technical, palette: colorPalettes.technical }
+            ];
+            
+            dims.forEach((dim, dimIdx) => {
+                const dimWeight = values.dimensions[dimIdx];
+                dim.criteria.forEach((criterion, critIdx) => {
+                    const critWeight = values[dim.key][critIdx];
+                    if (critWeight > 0 && dimWeight > 0) {
+                        finalWeights.push((critWeight * dimWeight) / 100);
+                        finalLabels.push(criterion.name);
+                        finalColors.push(dim.palette[critIdx % dim.palette.length]);
+                    }
+                });
+            });
+            
+            return { finalWeights, finalLabels, finalColors };
+        }
+        
+        function updateFinalChart() {
+            const canvas = document.getElementById('dimensionsChart');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            const { finalWeights, finalLabels, finalColors } = calculateFinalWeights();
+            
+            if (finalWeights.length === 0) {
+                if (charts.dimensions) charts.dimensions.destroy();
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.font = '14px Arial';
+                ctx.fillStyle = '#999';
+                ctx.fillText('Distribute points to see chart', 50, 150);
+                return;
             }
-        });
-    });
-    
-    return { finalWeights, finalLabels, finalColors };
-}
-
-function updateFinalChart() {
-    const canvas = document.getElementById('dimensionsChart');
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    const { finalWeights, finalLabels, finalColors } = calculateFinalWeights();
-    
-    if (finalWeights.length === 0) {
-        if (charts.dimensions) charts.dimensions.destroy();
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.font = '14px Arial';
-        ctx.fillStyle = '#999';
-        ctx.fillText('Distribute points to see chart', 50, 150);
-        return;
-    }
-    
-    if (charts.dimensions) charts.dimensions.destroy();
-    
-    charts.dimensions = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: finalLabels,
-            datasets: [{
-                data: finalWeights,
-                backgroundColor: finalColors,
-                borderWidth: 1,
-                borderColor: '#fff'
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: { position: 'bottom' },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            const label = context.label || '';
-                            const value = context.raw || 0;
-                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                            const percent = ((value / total) * 100).toFixed(1);
-                            return `${label}: ${value.toFixed(1)} points (${percent}%)`;
+            
+            if (charts.dimensions) charts.dimensions.destroy();
+            
+            charts.dimensions = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: finalLabels,
+                    datasets: [{
+                        data: finalWeights,
+                        backgroundColor: finalColors,
+                        borderWidth: 1,
+                        borderColor: '#fff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percent = ((value / total) * 100).toFixed(1);
+                                    return `${label}: ${value.toFixed(1)} points (${percent}%)`;
+                                }
+                            }
                         }
                     }
                 }
-            }
+            });
         }
-    });
-}
         
-        // CHECK IF SUBMIT READY
         function checkIfSubmitReady() {
             const roleSelected = document.getElementById('stakeholderRole').value;
             const dimensionsDone = values.dimensions.reduce((a, b) => a + b, 0) === 100;
             document.getElementById('submitBtn').disabled = !(roleSelected && dimensionsDone);
         }
         
-        // INIT
+        // ============================================
+        // 7. INITIALIZATION
+        // ============================================
         document.addEventListener('DOMContentLoaded', function() {
-            generateSliders('environmental', 'env-sliders', values.environmental, criteria.environmental);
-            generateSliders('social', 'social-sliders', values.social, criteria.social);
-            generateSliders('economic', 'economic-sliders', values.economic, criteria.economic);
-            generateSliders('technical', 'technical-sliders', values.technical, criteria.technical);
+            // Generate sliders with scales for all dimensions
+            generateSlidersWithScales('environmental', 'env-sliders', values.environmental, criteria.environmental);
+            generateSlidersWithScales('social', 'social-sliders', values.social, criteria.social);
+            generateSlidersWithScales('economic', 'economic-sliders', values.economic, criteria.economic);
+            generateSlidersWithScales('technical', 'technical-sliders', values.technical, criteria.technical);
+            
             createDimensionSliders();
             
             updateDimensionTotal('environmental');
@@ -1175,7 +1151,9 @@ function updateFinalChart() {
             }, 100);
         });
         
-        // NAVIGATION
+        // ============================================
+        // 8. NAVIGATION (keep as is)
+        // ============================================
         document.getElementById('nextBtn').addEventListener('click', function() {
             if (currentStep === 4) {
                 document.querySelectorAll('.dimension-card').forEach(c => c.classList.remove('active'));
@@ -1233,7 +1211,6 @@ function updateFinalChart() {
             }
         });
         
-        // BACK BUTTON
         document.getElementById('backFromSubmitBtn').addEventListener('click', function() {
             document.getElementById('stakeholder-section').style.display = 'none';
             document.getElementById('dim-dimensions').classList.add('active');
@@ -1254,7 +1231,9 @@ function updateFinalChart() {
             currentStep = 4;
         });
         
-        // SUBMIT (FormData version)
+        // ============================================
+        // 9. SUBMIT (keep as is)
+        // ============================================
         document.getElementById('submitBtn').addEventListener('click', async function() {
             const role = document.getElementById('stakeholderRole').value;
             if (!role) {
