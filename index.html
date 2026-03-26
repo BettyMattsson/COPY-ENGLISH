@@ -634,14 +634,14 @@
     // Hitta det högsta antalet alternativ på samma poäng
     const maxAltsPerScore = Math.max(...Object.values(alternativesByScore).map(arr => arr.length), 1);
     
-    // Skapa en rad för varje "nivå" av alternativ (staplade vertikalt)
+    // Skapa en rad för varje alternativ (alla alternativ får en egen rad)
     for (let level = 0; level < maxAltsPerScore; level++) {
         const circlesRow = document.createElement('div');
         circlesRow.style.display = 'flex';
         circlesRow.style.justifyContent = 'space-between';
         circlesRow.style.alignItems = 'center';
         circlesRow.style.minWidth = '700px';
-        circlesRow.style.marginBottom = level === maxAltsPerScore - 1 ? '0' : '8px';
+        circlesRow.style.marginBottom = '8px';
         
         for (let i = -10; i <= 10; i++) {
             const color = getColorForScore(i);
@@ -651,61 +651,58 @@
             cellDiv.style.textAlign = 'center';
             cellDiv.style.width = '32px';
             
-            // Visa detta alternativ på denna nivå om det finns
+            // Visa alternativet på denna nivå om det finns
             if (level < altNames.length) {
                 cellDiv.innerHTML = `
-                    <span style="font-size: 0.65rem; font-weight: bold; background: ${color}20; padding: 2px 6px; border-radius: 12px; color: ${color}; white-space: nowrap;">${altNames[level]}</span>
+                    <span style="font-size: 0.7rem; font-weight: bold; background: ${color}20; padding: 2px 8px; border-radius: 12px; color: ${color}; white-space: nowrap;">${altNames[level]}</span>
                 `;
-            } else if (level === maxAltsPerScore - 1) {
-                // På sista raden: visa cirkeln för alla positioner (bara en gång)
-                if (altNames.length > 0) {
-                    // Om det finns alternativ här, visa cirkeln redan på den första raden
-                    if (level === 0) {
-                        cellDiv.innerHTML = `
-                            <div style="margin-top: 4px;">
-                                <div style="width: 32px; height: 32px; border-radius: 50%; background: ${color}; border: 2px solid ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: white; margin: 0 auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                                    ${i}
-                                </div>
-                            </div>
-                        `;
-                    } else {
-                        cellDiv.innerHTML = `<div style="height: 36px;"></div>`;
-                    }
-                } else if (i === 0) {
-                    // Referenscirkeln visas bara på sista raden
-                    cellDiv.innerHTML = `
-                        <div style="margin-top: 4px;">
-                            <div style="width: 32px; height: 32px; border-radius: 50%; background: ${color}; border: 2px solid ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: white; margin: 0 auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                                ${i}
-                            </div>
-                        </div>
-                    `;
-                } else if (altNames.length === 0) {
-                    // Vanliga ofyllda cirklar
-                    cellDiv.innerHTML = `
-                        <div style="margin-top: 4px;">
-                            <div style="width: 32px; height: 32px; border-radius: 50%; background: white; border: 2px solid ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: ${color}; margin: 0 auto;">
-                                ${i}
-                            </div>
-                        </div>
-                    `;
-                } else {
-                    cellDiv.innerHTML = `<div style="height: 36px;"></div>`;
-                }
             } else {
-                // Tom cell för rader som inte har alternativ
-                cellDiv.innerHTML = `<div style="height: 28px;"></div>`;
+                // Tom cell för att behålla layouten
+                cellDiv.innerHTML = `<span style="visibility: hidden;"> </span>`;
             }
-            circlesRow.appendChild(cellDiv);
         }
         container.appendChild(circlesRow);
     }
+    
+    // Rad med cirklar (siffrorna)
+    const circlesRow = document.createElement('div');
+    circlesRow.style.display = 'flex';
+    circlesRow.style.justifyContent = 'space-between';
+    circlesRow.style.alignItems = 'center';
+    circlesRow.style.minWidth = '700px';
+    circlesRow.style.marginTop = '5px';
+    
+    for (let i = -10; i <= 10; i++) {
+        const color = getColorForScore(i);
+        const altNames = alternativesByScore[i] || [];
+        
+        const cellDiv = document.createElement('div');
+        cellDiv.style.textAlign = 'center';
+        cellDiv.style.width = '32px';
+        
+        // Cirkel med siffra
+        if (i === 0) {
+            cellDiv.innerHTML = `
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: ${color}; border: 2px solid ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: white; margin: 0 auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    ${i}
+                </div>
+            `;
+        } else {
+            cellDiv.innerHTML = `
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: white; border: 2px solid ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: ${color}; margin: 0 auto;">
+                    ${i}
+                </div>
+            `;
+        }
+        circlesRow.appendChild(cellDiv);
+    }
+    container.appendChild(circlesRow);
     
     if (showLegend) {
         const legendDiv = document.createElement('div');
         legendDiv.style.display = 'flex';
         legendDiv.style.justifyContent = 'space-between';
-        legendDiv.style.marginTop = '15px';
+        legendDiv.style.marginTop = '12px';
         legendDiv.style.padding = '0 5px';
         legendDiv.innerHTML = `
             <span style="font-size: 0.65rem; color: #e74c3c;">← Worse</span>
