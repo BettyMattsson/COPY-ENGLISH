@@ -361,42 +361,29 @@
         <h1>Hierarchical Weighting Survey for Anneberg</h1>
         
         <div class="context-box">
-            <h3>📋 Background: Anneberg</h3>
-            <p>Anneberg is an area in Partille municipality with apartment buildings, Skulltorps primary school, and Anneberg's preschool.</p>
-            <p>Anneberg is experiencing major stormwater challenges, and the municipality now faces a decision on the selection of stormwater solutions. 
-            The solutions are evaluated based on several different criteria within four dimensions: Environmental, Social, Economic, and Technical. This 
-            enables the evaluation of multifunctionality and sustainability.</p>
+            <h3>📋 Introduction and background</h3>
+            <p><i></i>The survey is part of a master's thesis at Chalmers University of Technology. The results will be used 
+                to determine which stormwater solutions are most suitable for the study area.</i>
             
-            <p><strong>The following solutions have been selected for evaluation:</strong></p>
-            <ol>
-                <li><strong>Macadam ditch</strong> - stone-filled ditch.</li>
-                <li><strong>Grass-covered macadam ditch</strong> - stone-filled ditch with a layer of grass.</li>
-                <li><strong>Rain garden</strong> - plant bed with, for example, flowers and grass.</li>
-                <li><strong>Macadam ditch + Rain garden</strong> - combined solution.</li>
-                <li><strong>Grass-covered macadam ditch + Rain garden</strong> - combined solution.</li>
-            </ol>
-            <p><small><i>The survey is part of a master's thesis at Chalmers University of Technology. The results will be used 
-                to determine which stormwater solutions are most suitable for Anneberg. The survey is anonymous.</i></small></p>
+            <strong>About the survey:</strong>
+                <ol>
+                    <li><strong>Time:</strong> Approximately 5 minutes, consisting of 5 different parts.</li>
+                    <li><strong>Anonymity:</strong> Your answers are anonymous and cannot be linked to you.</li>
+                    <li><strong>Questions:</strong>Please feel free to contact us via email.</li>
+                </ol>
+
+                Betty Mattsson: bettyma@chalmers.se
+            Tintin Oharnisch: harnisch@chalmers.se
+            </p>
         </div>
         
          <div class="context-box-orange">
             <h3>📝 Your task</h3>
-            <p>Your task is to distribute 100 points to reflect your personal experiences and opinions. To assist you in the scoring, a table is shown showing how the alternatives perform within each dimension. 
-            The alternatives are scored on a scale from <strong>-10 to +10</strong>, where <strong>0 is the reference alternative "Macadam ditch"</strong>. A positive score means the alternative performs better than the macadam ditch, while 
-            a negative score means it performs worse.</p>
-            
-            <p><strong>The survey has two steps:</strong></p>
-            <ol>
-                <li><strong>Steps 1-4:</strong> Distribute 100 points within each dimension (environmental, social, economic, technical).</li>
-                <li><strong>Step 5:</strong> Distribute 100 points between the dimensions. Under each dimension, you will see your previous weightings.</li>
-            </ol>
-            
-            <p>More points mean you consider the criterion or dimension to be of great importance for the choice of stormwater solution.
-            You can change the allocated points until you feel the distribution reflects your personal experiences and opinions.</p>
-            
-            <p><i><strong>Example: </strong> You are to assign points to two criteria. You assign 50 points each because you consider both criteria equally important. 
-            Later, you are to assign points to two other criteria. This time, you consider one criterion significantly more important and give 
-            it 80 points while the other gets 20 points. The sum of the points must always be 100 points.</i></p>
+            <p> Show your personal experience and prioritization by distributing 100 points between the criteria in each step. The more points you give, the more important you consider the criterion to be.
+                As a support for the distribution, you have a number line showing how well the different solutions perform on each criteria, as well as a visualization of the area.
+            <i>The sum must be 100. For example, if you give Recreation 70 points and Education 30 points within the Social dimension, this means that you consider recreation significantly more important than educational values.</i>
+            </p>
+        
         </div>
         
         <div class="step-indicator">
@@ -413,7 +400,7 @@
             <div class="description-box-miljo">
                 <strong>About the environmental dimension:</strong> This dimension concerns the impact of the measures on the natural environment. It includes both cleaning stormwater from existing pollutants and promoting biodiversity.
             </div>
-            <div class="instruction">⚖️ Distribute 100 points among the environmental criteria:</div>
+            <div class="instruction">⚖️ Distribute 100 points among the environmental criteria to show their relative importance:</div>
             <div id="env-sliders"></div>
             <div class="total-section">
                 <div class="total-display" id="envTotal">0</div>
@@ -430,7 +417,7 @@
             <div class="description-box-social">
                 <strong>About the social dimension:</strong> Concerns how the measures affect people's quality of life, recreation, and educational values.
             </div>
-            <div class="instruction">⚖️ Distribute 100 points among the social criteria:</div>
+            <div class="instruction">⚖️ Distribute 100 points among the social criteria to show their relative importance:</div>
             <div id="social-sliders"></div>
             <div class="total-section">
                 <div class="total-display" id="socialTotal">0</div>
@@ -447,7 +434,7 @@
             <div class="description-box-ekonomi">
                 <strong>About the economic dimension:</strong> Concerns construction costs and ongoing maintenance costs.
             </div>
-            <div class="instruction">⚖️ Distribute 100 points among the economic criteria:</div>
+            <div class="instruction">⚖️ Distribute 100 points among the economic criteria to show their relative importance:</div>
             <div id="economic-sliders"></div>
             <div class="total-section">
                 <div class="total-display" id="economicTotal">0</div>
@@ -464,7 +451,7 @@
             <div class="description-box-teknik">
                 <strong>About the technical dimension:</strong> Concerns maintenance frequency and complexity.
             </div>
-            <div class="instruction">⚖️ Distribute 100 points among the technical criteria:</div>
+            <div class="instruction">⚖️ Distribute 100 points among the technical criteria to show their relative importance:</div>
             <div id="technical-sliders"></div>
             <div class="total-section">
                 <div class="total-display" id="technicalTotal">0</div>
@@ -545,16 +532,16 @@
                 { id: "biodiversity", name: "Biodiversity", desc: "Contributes to the variety of plants and animals." }
             ],
             social: [
-                { id: "recreation", name: "Recreation and attractiveness", desc: "Accessibility, willingness to be in the area, and relaxation." },
-                { id: "education", name: "Education", desc: "Pedagogical values." }
+                { id: "recreation", name: "Recreation and attractiveness", desc: "Focus on creating a beautiful, relaxing, and easily accessible environment for residents and passersby in the area." },
+                { id: "education", name: "Education", desc: "Focus on the solution being educational and usable for pedagogical purposes, for example, for nearby schools." }
             ],
             economic: [
-                { id: "installcost", name: "Construction cost", desc: "Initial cost of the measure." },
-                { id: "maintenancecost", name: "Maintenance cost", desc: "Ongoing costs during the measure's lifecycle." }
+                { id: "installcost", name: "Construction cost", desc: "The one-time cost that arises directly during the construction and installation of the solution." },
+                { id: "maintenancecost", name: "Maintenance cost", desc: "The ongoing, annual costs for maintenance, cleaning, and inspection." }
             ],
             technical: [
-                { id: "frequency", name: "Maintenance frequency", desc: "How often maintenance is needed. Includes grass cutting, irrigation, etc." },
-                { id: "complexity", name: "Maintenance complexity", desc: "How complicated the maintenance is (type of equipment and knowledge required)." }
+                { id: "frequency", name: "Maintenance frequency", desc: "The need for regular maintenance, for example, how often you need to mow the grass or water the flowers." },
+                { id: "complexity", name: "Maintenance complexity", desc: "How advanced the maintenance is, meaning whether it requires special tools or expert knowledge." }
             ]
         };
         
@@ -567,7 +554,7 @@
             pahs: { 'Alt. 1': 0, 'Alt. 2': 6, 'Alt. 3': 3, 'Alt. 4': 3 },
             heavymetals: { 'Alt. 1': 0, 'Alt. 2': 0, 'Alt. 3': 0, 'Alt. 4': 0 },
             particles: { 'Alt. 1': 0, 'Alt. 2': 0, 'Alt. 3': 0, 'Alt. 4': 0 },
-            biodiversity: { 'Alt. 1': 0, 'Alt. 2': 2, 'Alt. 3': 2, 'Alt. 4': 3 },
+            biodiversity: { 'Alt. 1': 0, 'Alt. 2': 2, 'Alt. 3': 1, 'Alt. 4': 1 },
             
             // Social
             recreation: { 'Alt. 1': 1, 'Alt. 2': 6, 'Alt. 3': 4, 'Alt. 4': 3 },
@@ -579,7 +566,7 @@
             
             // Technical
             frequency: { 'Alt. 1': -1, 'Alt. 2': -6, 'Alt. 3': -3, 'Alt. 4': -3 },
-            complexity: { 'Alt. 1': 1, 'Alt. 2': -2, 'Alt. 3': -3, 'Alt. 4': -3 }
+            complexity: { 'Alt. 1': 1, 'Alt. 2': -2, 'Alt. 3': -1, 'Alt. 4': -1 }
         };
         
         // ============================================
@@ -631,27 +618,83 @@
             return `rgb(${r}, ${g}, ${b})`;
         }
         
-        function createScale(containerId, alternatives, showLegend = true) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-            container.innerHTML = '';
-            
-            const circlesRow = document.createElement('div');
-            circlesRow.style.display = 'flex';
-            circlesRow.style.justifyContent = 'space-between';
-            circlesRow.style.alignItems = 'flex-end';
-            circlesRow.style.minWidth = '700px';
-            
-            for (let i = -10; i <= 10; i++) {
-                const color = getColorForScore(i);
-                
-                let altName = null;
-                for (const [name, score] of Object.entries(alternatives)) {
-                    if (score === i) {
-                        altName = name;
-                        break;
-                    }
-                }
+     function createScale(containerId, alternatives, showLegend = true) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = '';
+    
+    // Gruppera alternativ efter poäng
+    const alternativesByScore = {};
+    for (const [name, score] of Object.entries(alternatives)) {
+        if (!alternativesByScore[score]) {
+            alternativesByScore[score] = [];
+        }
+        alternativesByScore[score].push(name);
+    }
+    
+    const circlesRow = document.createElement('div');
+    circlesRow.style.display = 'flex';
+    circlesRow.style.justifyContent = 'space-between';
+    circlesRow.style.alignItems = 'flex-end';
+    circlesRow.style.minWidth = '700px';
+    
+    for (let i = -10; i <= 10; i++) {
+        const color = getColorForScore(i);
+        const altNames = alternativesByScore[i] || [];
+        
+        const circleDiv = document.createElement('div');
+        circleDiv.style.textAlign = 'center';
+        circleDiv.style.width = '32px';
+        
+        if (altNames.length > 0) {
+            // Visa flera alternativ med komma
+            const altText = altNames.join(', ');
+            circleDiv.innerHTML = `
+                <div style="margin-bottom: 6px; min-height: 28px;">
+                    <span style="font-size: 0.65rem; font-weight: bold; background: ${color}20; padding: 2px 6px; border-radius: 12px; color: ${color}; white-space: nowrap;">${altText}</span>
+                </div>
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: ${color}; border: 2px solid ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: white; margin: 0 auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    ${i}
+                </div>
+            `;
+        } else if (i === 0) {
+            circleDiv.innerHTML = `
+                <div style="margin-bottom: 6px; min-height: 28px;">
+                    <span style="visibility: hidden;"> </span>
+                </div>
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: ${color}; border: 2px solid ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: white; margin: 0 auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        ${i}
+                    </div>
+                `;
+        } else {
+            circleDiv.innerHTML = `
+                <div style="margin-bottom: 6px; min-height: 28px;">
+                    <span style="visibility: hidden;"> </span>
+                </div>
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: white; border: 2px solid ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: ${color}; margin: 0 auto;">
+                        ${i}
+                    </div>
+                `;
+        }
+        circlesRow.appendChild(circleDiv);
+    }
+    
+    container.appendChild(circlesRow);
+    
+    if (showLegend) {
+        const legendDiv = document.createElement('div');
+        legendDiv.style.display = 'flex';
+        legendDiv.style.justifyContent = 'space-between';
+        legendDiv.style.marginTop = '10px';
+        legendDiv.style.padding = '0 5px';
+        legendDiv.innerHTML = `
+            <span style="font-size: 0.65rem; color: #e74c3c;">← Worse</span>
+            <span style="font-size: 0.65rem; color: #666;">0 (reference)</span>
+            <span style="font-size: 0.65rem; color: #27ae60;">Better →</span>
+        `;
+        container.appendChild(legendDiv);
+    }
+}
                 
                 const circleDiv = document.createElement('div');
                 circleDiv.style.textAlign = 'center';
