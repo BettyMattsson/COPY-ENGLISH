@@ -365,25 +365,24 @@
             <p><i></i>The survey is part of a master's thesis at Chalmers University of Technology. The results will be used 
                 to determine which stormwater solutions are most suitable for the study area.</i>
             
-            <strong>About the survey:</strong>
+            <p><strong>About the survey:</strong></p>
                 <ol>
                     <li><strong>Time:</strong> Approximately 5 minutes, consisting of 5 different parts.</li>
                     <li><strong>Anonymity:</strong> Your answers are anonymous and cannot be linked to you.</li>
                     <li><strong>Questions:</strong>Please feel free to contact us via email.</li>
                 </ol>
 
-                Betty Mattsson: bettyma@chalmers.se
-            Tintin Oharnisch: harnisch@chalmers.se
+                <p>Betty Mattsson: bettyma@chalmers.se</p>
+            <p>Tintin Oharnisch: harnisch@chalmers.se</p>
             </p>
         </div>
         
          <div class="context-box-orange">
             <h3>📝 Your task</h3>
-            <p> Show your personal experience and prioritization by distributing 100 points between the criteria in each step. The more points you give, the more important you consider the criterion to be.
-                As a support for the distribution, you have a number line showing how well the different solutions perform on each criteria, as well as a visualization of the area.
-            <i>The sum must be 100. For example, if you give Recreation 70 points and Education 30 points within the Social dimension, this means that you consider recreation significantly more important than educational values.</i>
-            </p>
-        
+            <p> Show your personal experience and prioritization by distributing <strong>100 points between the criteria</strong> in each step. The more points you give, the more important you consider the criterion to be.
+                As a support for the distribution, you have a number line showing how well the different solutions perform on each criteria, as well as a visualization of the area.</p>
+            <p><i>The sum must be 100. For example, if you give Recreation 70 points and Education 30 points within the Social dimension, this means that you consider recreation significantly more important than educational values.</i></p>
+    
         </div>
         
         <div class="step-indicator">
@@ -619,83 +618,103 @@
         }
         
         function createScale(containerId, alternatives, showLegend = true) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-            container.innerHTML = '';
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = '';
+    
+    // Gruppera alternativ efter poäng
+    const alternativesByScore = {};
+    for (const [name, score] of Object.entries(alternatives)) {
+        if (!alternativesByScore[score]) {
+            alternativesByScore[score] = [];
+        }
+        alternativesByScore[score].push(name);
+    }
+    
+    // Hitta det högsta antalet alternativ på samma poäng
+    const maxAltsPerScore = Math.max(...Object.values(alternativesByScore).map(arr => arr.length), 1);
+    
+    // Skapa en rad för varje "nivå" av alternativ (staplade vertikalt)
+    for (let level = 0; level < maxAltsPerScore; level++) {
+        const circlesRow = document.createElement('div');
+        circlesRow.style.display = 'flex';
+        circlesRow.style.justifyContent = 'space-between';
+        circlesRow.style.alignItems = 'center';
+        circlesRow.style.minWidth = '700px';
+        circlesRow.style.marginBottom = level === maxAltsPerScore - 1 ? '0' : '8px';
+        
+        for (let i = -10; i <= 10; i++) {
+            const color = getColorForScore(i);
+            const altNames = alternativesByScore[i] || [];
             
-            // Gruppera alternativ efter poäng
-            const alternativesByScore = {};
-            for (const [name, score] of Object.entries(alternatives)) {
-                if (!alternativesByScore[score]) {
-                    alternativesByScore[score] = [];
-                }
-                alternativesByScore[score].push(name);
-            }
+            const cellDiv = document.createElement('div');
+            cellDiv.style.textAlign = 'center';
+            cellDiv.style.width = '32px';
             
-            const circlesRow = document.createElement('div');
-            circlesRow.style.display = 'flex';
-            circlesRow.style.justifyContent = 'space-between';
-            circlesRow.style.alignItems = 'flex-end';
-            circlesRow.style.minWidth = '700px';
-            
-            for (let i = -10; i <= 10; i++) {
-                const color = getColorForScore(i);
-                const altNames = alternativesByScore[i] || [];
-                
-                const circleDiv = document.createElement('div');
-                circleDiv.style.textAlign = 'center';
-                circleDiv.style.width = '32px';
-                
+            // Visa detta alternativ på denna nivå om det finns
+            if (level < altNames.length) {
+                cellDiv.innerHTML = `
+                    <span style="font-size: 0.65rem; font-weight: bold; background: ${color}20; padding: 2px 6px; border-radius: 12px; color: ${color}; white-space: nowrap;">${altNames[level]}</span>
+                `;
+            } else if (level === maxAltsPerScore - 1) {
+                // På sista raden: visa cirkeln för alla positioner (bara en gång)
                 if (altNames.length > 0) {
-                    // Visa flera alternativ med komma
-                    const altText = altNames.join(', ');
-                    circleDiv.innerHTML = `
-                        <div style="margin-bottom: 6px; min-height: 28px;">
-                            <span style="font-size: 0.65rem; font-weight: bold; background: ${color}20; padding: 2px 6px; border-radius: 12px; color: ${color}; white-space: nowrap;">${altText}</span>
-                        </div>
-                        <div style="width: 32px; height: 32px; border-radius: 50%; background: ${color}; border: 2px solid ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: white; margin: 0 auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                            ${i}
+                    // Om det finns alternativ här, visa cirkeln redan på den första raden
+                    if (level === 0) {
+                        cellDiv.innerHTML = `
+                            <div style="margin-top: 4px;">
+                                <div style="width: 32px; height: 32px; border-radius: 50%; background: ${color}; border: 2px solid ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: white; margin: 0 auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    ${i}
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        cellDiv.innerHTML = `<div style="height: 36px;"></div>`;
+                    }
+                } else if (i === 0) {
+                    // Referenscirkeln visas bara på sista raden
+                    cellDiv.innerHTML = `
+                        <div style="margin-top: 4px;">
+                            <div style="width: 32px; height: 32px; border-radius: 50%; background: ${color}; border: 2px solid ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: white; margin: 0 auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                ${i}
+                            </div>
                         </div>
                     `;
-                } else if (i === 0) {
-                    circleDiv.innerHTML = `
-                        <div style="margin-bottom: 6px; min-height: 28px;">
-                            <span style="visibility: hidden;"> </span>
-                        </div>
-                        <div style="width: 32px; height: 32px; border-radius: 50%; background: ${color}; border: 2px solid ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: white; margin: 0 auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                            ${i}
+                } else if (altNames.length === 0) {
+                    // Vanliga ofyllda cirklar
+                    cellDiv.innerHTML = `
+                        <div style="margin-top: 4px;">
+                            <div style="width: 32px; height: 32px; border-radius: 50%; background: white; border: 2px solid ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: ${color}; margin: 0 auto;">
+                                ${i}
+                            </div>
                         </div>
                     `;
                 } else {
-                    circleDiv.innerHTML = `
-                        <div style="margin-bottom: 6px; min-height: 28px;">
-                            <span style="visibility: hidden;"> </span>
-                        </div>
-                        <div style="width: 32px; height: 32px; border-radius: 50%; background: white; border: 2px solid ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: ${color}; margin: 0 auto;">
-                            ${i}
-                        </div>
-                    `;
+                    cellDiv.innerHTML = `<div style="height: 36px;"></div>`;
                 }
-                circlesRow.appendChild(circleDiv);
+            } else {
+                // Tom cell för rader som inte har alternativ
+                cellDiv.innerHTML = `<div style="height: 28px;"></div>`;
             }
-            
-            container.appendChild(circlesRow);
-            
-            if (showLegend) {
-                const legendDiv = document.createElement('div');
-                legendDiv.style.display = 'flex';
-                legendDiv.style.justifyContent = 'space-between';
-                legendDiv.style.marginTop = '10px';
-                legendDiv.style.padding = '0 5px';
-                legendDiv.innerHTML = `
-                    <span style="font-size: 0.65rem; color: #e74c3c;">← Worse</span>
-                    <span style="font-size: 0.65rem; color: #666;">0 (reference)</span>
-                    <span style="font-size: 0.65rem; color: #27ae60;">Better →</span>
-                `;
-                container.appendChild(legendDiv);
-            }
+            circlesRow.appendChild(cellDiv);
         }
-        
+        container.appendChild(circlesRow);
+    }
+    
+    if (showLegend) {
+        const legendDiv = document.createElement('div');
+        legendDiv.style.display = 'flex';
+        legendDiv.style.justifyContent = 'space-between';
+        legendDiv.style.marginTop = '15px';
+        legendDiv.style.padding = '0 5px';
+        legendDiv.innerHTML = `
+            <span style="font-size: 0.65rem; color: #e74c3c;">← Worse</span>
+            <span style="font-size: 0.65rem; color: #666;">0 (reference)</span>
+            <span style="font-size: 0.65rem; color: #27ae60;">Better →</span>
+        `;
+        container.appendChild(legendDiv);
+    }
+}
         // ============================================
         // 5. SLIDER GENERATION WITH SCALES
         // ============================================
