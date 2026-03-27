@@ -52,6 +52,14 @@
             border-radius: 8px;
             margin: 20px 0;
         }
+
+       .context-box-yellow {
+    background-color: #fff9e6;
+    border-left: 5px solid #f1c40f;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+       }
         
         .step-indicator {
             display: flex;
@@ -371,14 +379,20 @@
          <div class="context-box-orange">
             <h3>📝 Your task</h3>
             <p><bigger>Show your personal experience and prioritization by distributing <strong>100 points between the criteria</strong> in each step. The more points you give, the more important you consider the criterion to be.
-                As a support for the distribution, you have a <strong>number line from -10 to 10</strong> showing how well the different solutions perform on each criteria (based on expertisefrom literature), as well as a <strong>visualization of the area.</strong></bigger></p>
-    
         </div>
 
-        <div class="context-box-orange">
-            <h3>📝 An example</h3>
-            <p></p>
-    
+        <div class="context-box-yellow">
+            <h3>📝 Guidance for your task</h3>
+    <p>To facilitate the comparison between the various proposals, we have rated them on a scale from -10 to +10. We use a <strong>reference alternative</strong> as a baseline, which corresponds to 0 on the scale. To make this extra clear, we have also visualized the different solutions on number lines for each criterion.
+In brief, this means:
+
+<strong>Plus points:</strong> Better than the reference alternative.
+
+<strong>0 points:</strong> Equivalent to the reference alternative.
+
+<strong>Minus points:</strong> Worse than the reference alternative.
+
+Please use the number lines as a guide to identify where the greatest added value lies when distributing your 100 points across the different criteria.</p>
         </div>
         
         <div class="step-indicator">
@@ -516,9 +530,9 @@
         // ============================================
         const criteria = {
             environmental: [
-                { id: "nutrients", name: "Nutrient removal", desc: "Clean stormwater from nitrogen and phosphorus. Can cause eutrophication." },
-                { id: "pahs_and_metals", name: "PAH and metal removal", desc: "Clean stormwater from polycyclic aromatic hydrocarbons. Can cause cancer." },
-                { id: "particles", name: "Suspended solids removal", desc: "Clean stormwater from suspended particles. Can cause turbidity and sediment." },
+                { id: "nutrients", name: "Nutrient removal", desc: "Clean stormwater from nitrogen and phosphorus. Can cause overload of nutrients in aquatic environments and eutrification." },
+                { id: "pahs_and_metals", name: "PAH and metal removal", desc: "Clean stormwater from PAH and metals. Can cause seriouis effects on aquatic environment and human health." },
+                { id: "particles", name: "Suspended solids removal", desc: "Clean stormwater from suspended particles. Can carry and transport other pollutants as well as cause turbidity." },
                 { id: "biodiversity", name: "Biodiversity", desc: "Contributes to the variety of plants and animals." }
             ],
             social: [
