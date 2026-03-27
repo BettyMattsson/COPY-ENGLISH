@@ -363,25 +363,21 @@
         <div class="context-box">
             <h3>📋 Introduction and background</h3>
             <p><i></i>The survey is part of a master's thesis at Chalmers University of Technology. The results will be used 
-                to determine which stormwater solutions are most suitable for the study area.</i>
-            
-            <p><strong>About the survey:</strong></p>
-                <ol>
-                    <li><strong>Time:</strong> Approximately 5 minutes, consisting of 5 different parts.</li>
-                    <li><strong>Anonymity:</strong> Your answers are anonymous and cannot be linked to you.</li>
-                    <li><strong>Questions:</strong>Please feel free to contact us via email.</li>
-                </ol>
-
-                <p>Betty Mattsson: bettyma@chalmers.se</p>
-            <p>Tintin Oharnisch: harnisch@chalmers.se</p>
+                to determine which stormwater solutions are most suitable for the study area. The solutions are: infiltration trench, grass covered infiltration trench, raingarden and two combinations between the three.
+                <i><small>The solutions are named referense alternative and ALT 1-4. These are kept anonymous to ensure objectivity.</small></i>
             </p>
         </div>
         
          <div class="context-box-orange">
             <h3>📝 Your task</h3>
-            <p> Show your personal experience and prioritization by distributing <strong>100 points between the criteria</strong> in each step. The more points you give, the more important you consider the criterion to be.
-                As a support for the distribution, you have a number line showing how well the different solutions perform on each criteria, as well as a visualization of the area.</p>
-            <p><i>The sum must be 100. For example, if you give Recreation 70 points and Education 30 points within the Social dimension, this means that you consider recreation significantly more important than educational values.</i></p>
+            <p><bigger>Show your personal experience and prioritization by distributing <strong>100 points between the criteria</strong> in each step. The more points you give, the more important you consider the criterion to be.
+                As a support for the distribution, you have a <strong>number line from -10 to 10</strong> showing how well the different solutions perform on each criteria (based on expertisefrom literature), as well as a <strong>visualization of the area.</strong></bigger></p>
+    
+        </div>
+
+        <div class="context-box-orange">
+            <h3>📝 An example</h3>
+            <p></p>
     
         </div>
         
@@ -521,8 +517,7 @@
         const criteria = {
             environmental: [
                 { id: "nutrients", name: "Nutrient removal", desc: "Clean stormwater from nitrogen and phosphorus. Can cause eutrophication." },
-                { id: "pahs", name: "PAH removal", desc: "Clean stormwater from polycyclic aromatic hydrocarbons. Can cause cancer." },
-                { id: "heavymetals", name: "Heavy metal removal", desc: "Clean stormwater from heavy metals." },
+                { id: "pahs_and_metals", name: "PAH and metal removal", desc: "Clean stormwater from polycyclic aromatic hydrocarbons. Can cause cancer." },
                 { id: "particles", name: "Suspended solids removal", desc: "Clean stormwater from suspended particles. Can cause turbidity and sediment." },
                 { id: "biodiversity", name: "Biodiversity", desc: "Contributes to the variety of plants and animals." }
             ],
@@ -546,8 +541,7 @@
         const criteriaScores = {
             // Environmental
             nutrients: { 'Alt. 1': 0, 'Alt. 2': -1, 'Alt. 3': 0, 'Alt. 4': 0 },
-            pahs: { 'Alt. 1': 0, 'Alt. 2': 6, 'Alt. 3': 3, 'Alt. 4': 3 },
-            heavymetals: { 'Alt. 1': 0, 'Alt. 2': 0, 'Alt. 3': 0, 'Alt. 4': 0 },
+            pahs_and_metals: { 'Alt. 1': 0, 'Alt. 2': 6, 'Alt. 3': 3, 'Alt. 4': 3 },
             particles: { 'Alt. 1': 0, 'Alt. 2': 0, 'Alt. 3': 0, 'Alt. 4': 0 },
             biodiversity: { 'Alt. 1': 0, 'Alt. 2': 2, 'Alt. 3': 1, 'Alt. 4': 1 },
             
