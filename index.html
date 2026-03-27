@@ -1259,10 +1259,9 @@
             formData.append('role', role);
             formData.append('comments', document.getElementById('comments').value || '');
             formData.append('nutrients', values.environmental[0]);
-            formData.append('pahs', values.environmental[1]);
-            formData.append('heavymetals', values.environmental[2]);
-            formData.append('particles', values.environmental[3]);
-            formData.append('biodiversity', values.environmental[4]);
+            formData.append('pahs_and_metals', values.environmental[1]);
+            formData.append('particles', values.environmental[2]);
+            formData.append('biodiversity', values.environmental[3]);
             formData.append('recreation', values.social[0]);
             formData.append('education', values.social[1]);
             formData.append('installcost', values.economic[0]);
